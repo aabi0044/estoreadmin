@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor() { }
+  constructor(private afs:AngularFirestore) { }
   //========================== Users=========================
 
 
@@ -37,16 +38,16 @@ export class ApiService {
     return this.afs.collection('products').add(data);
   }
 
-  //read One 
-  // getProduct(uid) {
-  //   return this.afs.doc('products/' + uid).valueChanges();
-  // }
-  getproduct(uid){
-    return this.afs.doc('products/'+uid).get();
+  // read One 
+  getProduct(uid) {
+    return this.afs.doc('products/' + uid).valueChanges();
   }
+  // getproduct(uid){
+  //   return this.afs.doc('products/'+uid).get();
+  // }
   //Read All
   getProducts() {
-    return this.afs.collection('products',ref=>ref.orderBy('quantity','desc')).snapshotChanges();
+    return this.afs.collection('products').snapshotChanges();
   }
   //UPDATE 
     updateProduct(uid, data) {
@@ -64,15 +65,15 @@ export class ApiService {
   }
 
   //read One 
-  // getBill(uid) {
-  //   return this.afs.doc('products/' + uid).valueChanges();
-  // }
-  getBill(uid){
-    return this.afs.doc('bills/'+uid).get();
+  getBill(uid) {
+    return this.afs.doc('products/' + uid).valueChanges();
   }
+  // getBill(uid){
+  //   return this.afs.doc('bills/'+uid).get();
+  // }
   //Read All
   getBills() {
-    return this.afs.collection('bills',ref=>ref.orderBy('quantity','desc')).snapshotChanges();
+    return this.afs.collection('bills').snapshotChanges();
   }
   //UPDATE 
     updateBill(uid, data) {
