@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor(private afs:AngularFireStore) { }
+  constructor() { }
   //========================== Users=========================
 
 
