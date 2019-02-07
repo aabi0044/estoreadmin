@@ -17,9 +17,21 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 const ROUTES = [
   {
+    redirectTo: 'login',
     path: '',
-    component: LoginComponent,
     pathMatch: 'full'
+  },
+  {
+    
+    path: 'dashboard',
+    component: DashboardComponent,
+    
+  },
+  {
+    
+    path: 'login',
+    component: LoginComponent,
+    
   },
 ]
 
